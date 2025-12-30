@@ -1,0 +1,43 @@
+<!--
+CEO Account Dashboard
+ENGLISH / ESPAÑOL / ESPERANTO
+
+EN: Financial health, break-even, churn, and VIP support for CEO.
+ES: Salud financiera, punto de equilibrio, churn y soporte VIP para CEO.
+EO: Financa sano, ekvilibro, forlaso kaj VIP-subteno por CEO.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Account & Business Health</title>
+  <link rel="stylesheet" href="ceo_account.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>CEO Account / Cuenta CEO / CEO-Konto</h1>
+    <p>EN: Total business control. ES: Control total del negocio. EO: Totala komerca regado.</p>
+  </header>
+  <main>
+    <section id="balance-sheet-section">
+      <h2>Balance Sheet View / Hoja de Balance / Bilanca Folio</h2>
+      <canvas id="balance-sheet-chart"></canvas>
+    </section>
+    <section id="break-even-section">
+      <h2>Dynamic Break-even Analysis / Análisis de Equilibrio / Dinamika Ekvilibro</h2>
+      <div id="break-even-table"></div>
+    </section>
+    <section id="vip-support-section">
+      <h2>VIP Support (Tier 3) / Soporte VIP / VIP-Subteno</h2>
+      <div id="vip-support-table"></div>
+    </section>
+    <section id="scaling-metrics-section">
+      <h2>Scaling Metrics / Métricas de Escalado / Skalaj Metrikoj</h2>
+      <div id="cost-per-api"></div>
+    </section>
+  </main>
+  <script src="ceo_account.js"></script>
+</body>
+</html>

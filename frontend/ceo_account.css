@@ -1,0 +1,52 @@
+/* CEO Account Dashboard Styles
+   EN / ES / EO */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  color: #222;
+}
+header {
+  background: #263238;
+  color: #fff;
+  padding: 1.5rem 1rem 1rem 1rem;
+  text-align: center;
+}
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #26323811;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+canvas {
+  width: 100% !important;
+  max-width: 900px;
+  height: 320px !important;
+}
+#break-even-table, #vip-support-table, #cost-per-api {
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+#break-even-table table, #vip-support-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#break-even-table th, #break-even-table td, #vip-support-table th, #vip-support-table td {
+  border: 1px solid #b0bec5;
+  padding: 0.5em 0.7em;
+  text-align: center;
+}
+#break-even-table th, #vip-support-table th {
+  background: #eceff1;
+}
+@media (max-width: 700px) {
+  main { padding: 0.5rem; }
+  section { padding: 0.7rem; }
+  canvas { height: 180px !important; }
+}

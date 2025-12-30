@@ -15,6 +15,9 @@ import jwt
 import redis.asyncio as redis
 import asyncio
 import random
+import base64
+from cryptography.fernet import Fernet
+import googletrans
 
 # Redis config
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
@@ -57,36 +60,56 @@ class ScarcityRequest(BaseModel):
     destination: str
     category: str = "luxury retail"
 
-# Mock inventory DB
+# --- Business Rule: Margins for Scarcity ---
+# Add margin to inventory
 MOCK_INVENTORY = {
     "Madrid": [
-        {"item": "Hermès Birkin", "stock_cn": 1, "stock_dest": 5},
-        {"item": "Rolex Daytona", "stock_cn": 0, "stock_dest": 3},
-        {"item": "Louis Vuitton Capucines", "stock_cn": 2, "stock_dest": 7}
+        {"item": "Hermès Birkin", "stock_cn": 1, "stock_dest": 5, "margin": 0.45},
+        {"item": "Rolex Daytona", "stock_cn": 0, "stock_dest": 3, "margin": 0.38},
+        {"item": "Louis Vuitton Capucines", "stock_cn": 2, "stock_dest": 7, "margin": 0.33}
     ],
     "Paris": [
-        {"item": "Chanel Classic Flap", "stock_cn": 0, "stock_dest": 4},
-        {"item": "Dior Book Tote", "stock_cn": 1, "stock_dest": 6}
+        {"item": "Chanel Classic Flap", "stock_cn": 0, "stock_dest": 4, "margin": 0.41},
+        {"item": "Dior Book Tote", "stock_cn": 1, "stock_dest": 6, "margin": 0.29}
     ]
 }
 
-# Mock activities DB
-MOCK_ACTIVITIES = {
-    "Madrid": {
-        "Old Money Luxury": ["Private Prado Museum Tour", "Gourmet Tapas Crawl", "Luxury Shopping at Salamanca"],
-        "Adventure Seeker": ["Hot Air Balloon Ride", "Segovia Hiking", "Kayak in Manzanares"],
-        "Shopping Focused": ["Las Rozas Village Outlet", "El Corte Inglés VIP", "Designer Pop-Up Events"],
-        "Cultural Immersion": ["Flamenco Masterclass", "Royal Palace Tour", "Local Artisanal Markets"],
-        "Insta-Traveler": ["Gran Via Rooftop Photoshoot", "Retiro Park Picnic", "Street Art Tour"]
-    },
-    "Paris": {
-        "Old Money Luxury": ["Private Louvre Tour", "Michelin Star Dining", "Chauffeured Seine Cruise"],
-        "Adventure Seeker": ["Versailles Bike Tour", "Montmartre Climbing", "Seine Kayaking"],
-        "Shopping Focused": ["Galeries Lafayette VIP", "Le Marais Boutiques", "Luxury Outlet Day"],
-        "Cultural Immersion": ["Wine & Cheese Tasting", "Opera Garnier Tour", "Montparnasse Artists Walk"],
-        "Insta-Traveler": ["Eiffel Tower Sunrise", "Montmartre Murals", "Champs-Élysées Selfie Spots"]
-    }
+# --- Business Rule: End-to-End Encryption for Inventory ---
+FERNET_KEY = os.getenv("INVENTORY_FERNET_KEY") or Fernet.generate_key().decode()
+fernet = Fernet(FERNET_KEY.encode())
+
+def encrypt_inventory(data):
+    """
+    EN: Encrypt inventory data for secure sharing.
+    ES: Cifra datos de inventario para compartir seguro.
+    EO: Ĉifru inventardatumojn por sekura kunhavigo.
+    """
+    import json
+    return fernet.encrypt(json.dumps(data).encode()).decode()
+
+def decrypt_inventory(token):
+    import json
+    return json.loads(fernet.decrypt(token.encode()).decode())
+
+# --- Business Rule: Multilingual Dynamic Prediction ---
+translator = googletrans.Translator()
+LANG_MAP = {
+    "Brazil": "pt",
+    "France": "fr",
+    "China": "zh-cn",
+    # Add more as needed
 }
+MANDARIN = "zh-cn"
+
+def translate_with_original(text, dest_lang):
+    """
+    EN: Translate text to dest_lang, always include Mandarin original.
+    ES: Traduce texto a dest_lang, siempre incluye original en mandarín.
+    EO: Traduku tekston al dest_lang, ĉiam inkluzivu mandarenan originalon.
+    """
+    mandarin = translator.translate(text, dest=MANDARIN).text
+    translated = translator.translate(text, dest=dest_lang).text
+    return {"translated": translated, "original_mandarin": mandarin}
 
 # Geo-fencing logic
 def prioritize_region(location: str, destination: str, data: dict) -> dict:
@@ -135,18 +158,41 @@ async def vibe_matching(profile: UserProfile = Depends(), user=Depends(get_user)
 @app.get("/api/v1/recommend/scarcity", dependencies=[Depends(JWTBearer())])
 async def scarcity(dest: str, user=Depends(get_user)):
     """
-    EN: Return items with low stock in China but high stock in the destination.
-    ES: Devuelve artículos con poco stock en China pero alto en el destino.
-    EO: Redonu varojn kun malmulta stoko en Ĉinio sed multe en la celo.
+    EN: Return items with low stock in China but high stock in the destination, prioritized by profit margin. Data is end-to-end encrypted.
+    ES: Devuelve artículos con poco stock en China pero alto en el destino, priorizados por margen de ganancia. Datos cifrados de extremo a extremo.
+    EO: Redonu varojn kun malmulta stoko en Ĉinio sed multe en la celo, prioritatigitaj laŭ profita marĝeno. Datumoj estas ĉifritaj de ekstremo al ekstremo.
     """
     cache_key = f"scarcity:{dest}"
     cached = await get_cached(cache_key)
     if cached:
         return cached
     items = [item for item in MOCK_INVENTORY.get(dest, []) if item["stock_cn"] < 2 and item["stock_dest"] > 2]
-    result = {"destination": dest, "scarce_items": items}
+    # Prioritize by margin
+    items = sorted(items, key=lambda x: x["margin"], reverse=True)
+    # Encrypt inventory
+    encrypted = encrypt_inventory(items)
+    result = {"destination": dest, "scarce_items_encrypted": encrypted}
     await set_cached(cache_key, result)
     return result
+
+@app.get("/api/v1/recommend/scarcity/decrypt", dependencies=[Depends(JWTBearer())])
+async def scarcity_decrypt(token: str, user=Depends(get_user)):
+    """
+    EN: Decrypt inventory data (for trusted partners).
+    ES: Descifra datos de inventario (para aliados de confianza).
+    EO: Malĉifru inventardatumojn (por fidindaj partneroj).
+    """
+    return {"decrypted": decrypt_inventory(token)}
+
+@app.get("/api/v1/recommend/predict-multilingual", dependencies=[Depends(JWTBearer())])
+async def predict_multilingual(destination: str, text: str, dmc_lang: str = None):
+    """
+    EN: Predict in DMC language, always include Mandarin original.
+    ES: Predice en el idioma del DMC, siempre incluye original en mandarín.
+    EO: Prognozu en la DMC-lingvo, ĉiam inkluzivu mandarenan originalon.
+    """
+    lang = dmc_lang or LANG_MAP.get(destination, "en")
+    return translate_with_original(text, lang)
 
 # Health check
 @app.get("/health")

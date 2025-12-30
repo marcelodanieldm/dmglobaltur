@@ -1,0 +1,49 @@
+<!--
+Forecasting & Global Trends Dashboard
+ENGLISH / ESPAÑOL / ESPERANTO
+
+EN: Visualizes predictive data for business actionability.
+ES: Visualiza datos predictivos para decisiones de negocio.
+EO: Bildigas prognozajn datumojn por komercaj agoj.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forecasting & Global Trends Dashboard</title>
+  <link rel="stylesheet" href="dashboard_forecasting.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 Forecasting & Global Trends</h1>
+    <p>EN: See the future. ES: Ve el futuro. EO: Vidu la estontecon.</p>
+  </header>
+  <main>
+    <section id="predictive-map-section">
+      <h2>Predictive Map / Mapa Predictivo / Prognoza Mapo</h2>
+      <div id="predictive-map"></div>
+      <div id="map-legend">
+        <span class="legend-glow legend-low"></span> Low
+        <span class="legend-glow legend-medium"></span> Medium
+        <span class="legend-glow legend-high"></span> High
+      </div>
+    </section>
+    <section id="trend-comparison-section">
+      <h2>Trend Comparison / Comparación de Tendencias / Komparo de Tendencoj</h2>
+      <canvas id="trend-comparison-chart"></canvas>
+    </section>
+    <section id="ceo-metrics-section">
+      <h2>CEO Metrics: Global Footprint</h2>
+      <div id="global-footprint"></div>
+    </section>
+  </main>
+  <div id="mobile-alert" class="mobile-alert hidden">
+    <strong>Critical Alert:</strong> Surge detected! (>30%)
+  </div>
+  <script src="dashboard_forecasting.js"></script>
+</body>
+</html>
