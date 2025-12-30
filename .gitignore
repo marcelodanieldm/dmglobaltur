@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env*
+*.sqlite3
+*.db
+*.log
+*.pot
+*.pyc
+*.pkl
+*.egg-info/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+notebooks/*.ipynb
+!notebooks/xiaohongshu_eda.ipynb
+!notebooks/xiaohongshu_data_exploration.ipynb
+
+# VSCode
+.vscode/
+
+# Alembic
+alembic/versions/*.pyc
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test/CI
+.coverage
+htmlcov/
+pytest_cache/
+
+# Others
+*.bak
+*.swp
+*.tmp
+*.orig
