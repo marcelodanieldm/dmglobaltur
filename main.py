@@ -137,7 +137,7 @@ async def ingest_xiaohongshu(data: List[dict], request: Request):
 
 @app.get("/api/v1/trends/xiaohongshu", dependencies=[Depends(get_api_key)])
 @limiter.limit("100/minute")
-async def get_xiaohongshu_trends():
+async def get_xiaohongshu_trends(request: Request):
     """
     EN: Get the latest 10 Xiaohongshu trending hashtags from the database.
     ES: Obtiene los últimos 10 hashtags de tendencia de Xiaohongshu desde la base de datos.
