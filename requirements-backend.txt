@@ -1,0 +1,9 @@
+# Backend requirements for DM Global Tur FastAPI API
+fastapi
+uvicorn[standard]
+SQLAlchemy>=2.0
+asyncpg
+alembic
+slowapi
+python-dotenv
+psycopg2-binary

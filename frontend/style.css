@@ -1,0 +1,123 @@
+/*
+DM Global Tur UI Styles
+ENGLISH / ESPAÑOL / ESPERANTO
+*/
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f7f7fa;
+  color: #222;
+}
+header {
+  background: #1a2238;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+header .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+nav a {
+  color: #e0e0e0;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #ff6a3d;
+}
+.hero {
+  background: linear-gradient(90deg, #ff6a3d 0%, #1a2238 100%);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.cta {
+  display: inline-block;
+  background: #1a2238;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(26,34,56,0.1);
+  transition: background 0.2s, color 0.2s;
+}
+.cta:hover {
+  background: #ff6a3d;
+  color: #fff;
+}
+section {
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(26,34,56,0.05);
+}
+footer {
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  color: #888;
+  font-size: 0.95rem;
+}
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#trends-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.trend-card {
+  background: #f7f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  width: 270px;
+  box-shadow: 0 1px 4px rgba(26,34,56,0.04);
+  transition: box-shadow 0.2s;
+}
+.trend-card:hover {
+  box-shadow: 0 4px 16px rgba(255,106,61,0.10);
+}
+.trend-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1a2238;
+}
+.trend-card .count {
+  font-size: 1.1rem;
+  color: #ff6a3d;
+  margin-bottom: 0.5rem;
+}
+.trend-card .sentiment {
+  font-size: 0.98rem;
+  color: #1a2238;
+  margin-bottom: 0.5rem;
+}
+.trend-card ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  font-size: 0.97rem;
+}
+.trend-card ul li {
+  margin-bottom: 0.2rem;
+}
