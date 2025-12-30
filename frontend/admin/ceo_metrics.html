@@ -1,0 +1,73 @@
+<!--
+CEO Dashboard for DM Global Tur
+ENGLISH / ESPAÑOL / ESPERANTO
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Metrics - DM Global Tur</title>
+  <link rel="stylesheet" href="../style.css">
+  <!--
+    EN: Internal dashboard for financial and operational health.
+    ES: Dashboard interno para salud financiera y operativa.
+    EO: Interna panelo por financa kaj operacia sano.
+  -->
+</head>
+<body>
+  <header>
+    <h1>DM Global Tur - CEO Dashboard</h1>
+    <nav>
+      <a href="../index.html">Home / Inicio / Hejmo</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="#">CEO Metrics</a>
+    </nav>
+  </header>
+  <main>
+    <section class="metrics">
+      <h2><!-- EN -->Key Metrics <!-- ES -->Métricas Clave <!-- EO -->Ĉefaj Metrikoj</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3><!-- EN -->Total Revenue (MRR) <!-- ES -->Ingresos Totales (MRR) <!-- EO -->Tuta Enspezo (MRR)</h3>
+          <div id="revenue">--</div>
+        </div>
+        <div class="metric-card">
+          <h3><!-- EN -->New Users per Region <!-- ES -->Nuevos Usuarios por Región <!-- EO -->Novaj Uzantoj laŭ Regiono</h3>
+          <div id="users-region">--</div>
+        </div>
+        <div class="metric-card">
+          <h3><!-- EN -->Churn Rate <!-- ES -->Tasa de Cancelación <!-- EO -->Forlasa Procento</h3>
+          <div id="churn">--</div>
+        </div>
+      </div>
+    </section>
+    <section class="break-even">
+      <h2><!-- EN -->Break-even Calculator <!-- ES -->Calculadora de Punto de Equilibrio <!-- EO -->Kalkulilo de Rompunkto</h2>
+      <canvas id="breakevenChart" height="120"></canvas>
+    </section>
+    <section class="api-logs">
+      <h2><!-- EN -->API Consumption Logs <!-- ES -->Registros de Consumo de API <!-- EO -->API-Konsumaj Protokoloj</h2>
+      <table id="api-logs-table">
+        <thead>
+          <tr>
+            <th><!-- EN -->Customer <!-- ES -->Cliente <!-- EO -->Kliento</th>
+            <th><!-- EN -->API Endpoint <!-- ES -->Endpoint API <!-- EO -->API-Fino</th>
+            <th><!-- EN -->Calls <!-- ES -->Llamadas <!-- EO -->Vokoj</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <section class="heatmap">
+      <h2><!-- EN -->API Calls Heatmap <!-- ES -->Mapa de Calor de Llamadas API <!-- EO -->Vokmapo de API-Vokoj</h2>
+      <div id="heatmap" style="height: 350px; background: #222; border-radius: 12px;"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 DM Global Tur. <!-- EN -->All rights reserved. <!-- ES -->Todos los derechos reservados. <!-- EO -->Ĉiuj rajtoj rezervitaj.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="ceo_metrics.js"></script>
+</body>
+</html>
