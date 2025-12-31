@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM Trust Wallet</title>
+  <link rel="stylesheet" href="DMTrustWallet.css">
+</head>
+<body>
+  <div class="wallet-container">
+    <header>
+      <h1>DM Trust Wallet</h1>
+      <div class="liquidity-pool">
+        <span>Liquidity Pool:</span>
+        <span id="liquidity-amount">$1,250,000</span>
+      </div>
+    </header>
+    <section class="balances">
+      <h2>Balances</h2>
+      <div class="balance-row">
+        <span>USD:</span> <span id="balance-usd">$5,000</span>
+      </div>
+      <div class="balance-row">
+        <span>EUR:</span> <span id="balance-eur">€4,600</span>
+      </div>
+      <div class="balance-row">
+        <span>CNY:</span> <span id="balance-cny">¥32,000</span>
+      </div>
+      <div class="balance-row">
+        <span>Digital Asset:</span> <span id="balance-token">2,000 DMG</span>
+      </div>
+      <div class="fee-breakdown">
+        <h3>Fee Breakdown</h3>
+        <ul>
+          <li><span class="fee-label">Transaction Fee:</span> 0.75% per payout</li>
+          <li><span class="fee-label">FX Fee:</span> 0.3% per currency conversion</li>
+          <li><span class="fee-label">API Call Fee:</span> $0.01 per API call</li>
+        </ul>
+      </div>
+    </section>
+    <section class="timeline">
+      <h2>Transaction Timeline</h2>
+      <div class="timeline-steps">
+        <div class="step completed">
+          <div class="circle">1</div>
+          <div class="label">Referral</div>
+        </div>
+        <div class="step completed">
+          <div class="circle">2</div>
+          <div class="label">Sale</div>
+        </div>
+        <div class="step completed">
+          <div class="circle">3</div>
+          <div class="label">Verification</div>
+        </div>
+        <div class="step active">
+          <div class="circle">4</div>
+          <div class="label">Payout</div>
+        </div>
+      </div>
+    </section>
+    <div class="alert payout-success">
+      <span class="icon">🎉</span>
+      <span>Payout Successful! Funds have been credited to your wallet.</span>
+    </div>
+  </div>
+</body>
+</html>

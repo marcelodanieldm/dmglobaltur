@@ -1,0 +1,140 @@
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 28px 24px 28px;
+}
+header h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 18px;
+}
+.metrics {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+.metric-block {
+  background: #fffbe6;
+  border: 1.5px solid #e6c200;
+  border-radius: 12px;
+  padding: 18px 28px;
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+}
+.metric-block h2 {
+  font-size: 1.1rem;
+  color: #bfa14a;
+  margin-bottom: 8px;
+}
+.metric-value {
+  font-size: 2.1rem;
+  color: #222;
+  font-weight: bold;
+}
+.metric-goal {
+  font-size: 0.98rem;
+  color: #888;
+  margin-top: 4px;
+}
+.charts {
+  margin-bottom: 28px;
+}
+.fee-breakdown {
+  margin-top: 18px;
+  background: #fffbe6;
+  border: 1.5px solid #e6c200;
+  border-radius: 10px;
+  padding: 14px 22px;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.08);
+}
+.fee-breakdown h3 {
+  color: #bfa14a;
+  margin: 0 0 8px 0;
+  font-size: 1.08rem;
+}
+.fee-breakdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fee-breakdown li {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.fee-label {
+  font-weight: 600;
+  color: #e6c200;
+}
+}
+.partner-health {
+  margin-bottom: 28px;
+}
+.partner-health table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.08);
+}
+.partner-health th, .partner-health td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 1.08rem;
+}
+.partner-health th {
+  background: #fffbe6;
+  color: #bfa14a;
+  font-weight: 700;
+  border-bottom: 2px solid #e6c200;
+}
+.partner-health tr {
+  border-bottom: 1px solid #f0e6c2;
+}
+.partner-health tr:last-child {
+  border-bottom: none;
+}
+.good {
+  color: #4caf50;
+  font-weight: bold;
+}
+.average {
+  color: #e6c200;
+  font-weight: bold;
+}
+.poor {
+  color: #e57373;
+  font-weight: bold;
+}
+.compliance {
+  margin-bottom: 0;
+}
+.compliance button {
+  background: linear-gradient(90deg, #e6c200 0%, #bfa14a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+  transition: background 0.2s;
+}
+.compliance button:hover {
+  background: linear-gradient(90deg, #bfa14a 0%, #e6c200 100%);
+}
+#proof-status {
+  margin-top: 10px;
+  color: #4caf50;
+  font-weight: 600;
+}

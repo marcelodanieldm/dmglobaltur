@@ -1,0 +1,57 @@
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.dashboard-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 28px 24px 28px;
+}
+header h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 18px;
+}
+.funnel-metrics h2 {
+  font-size: 1.2rem;
+  color: #bfa14a;
+  margin-bottom: 14px;
+}
+#report-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.08);
+}
+#report-table th, #report-table td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 1.08rem;
+}
+#report-table th {
+  background: #fffbe6;
+  color: #bfa14a;
+  font-weight: 700;
+  border-bottom: 2px solid #e6c200;
+}
+#report-table tr {
+  border-bottom: 1px solid #f0e6c2;
+}
+#report-table tr:last-child {
+  border-bottom: none;
+}
+.high-intent {
+  color: #4caf50;
+  font-weight: bold;
+}
+.low-intent {
+  color: #e57373;
+  font-weight: bold;
+}

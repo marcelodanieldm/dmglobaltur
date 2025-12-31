@@ -1,0 +1,101 @@
+body {
+  background: #18181a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 32px auto;
+  background: #232326;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0006;
+  padding: 32px;
+}
+header h1 {
+  color: #bfa14a;
+  margin-bottom: 24px;
+}
+.incident {
+  border-left: 8px solid #e53935; /* Imperial Red por defecto */
+  background: #222;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+.incident.resuelto {
+  border-left-color: #2ecc71; /* Emerald Green */
+  opacity: 0.85;
+}
+.incident.investigando {
+  border-left-color: #bfa14a;
+}
+.incident-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.incident-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.incident-status {
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: #fff;
+  background: #e53935;
+}
+.incident.resuelto .incident-status {
+  background: #2ecc71;
+}
+.incident.investigando .incident-status {
+  background: #bfa14a;
+}
+.incident-actions button {
+  margin-right: 12px;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #bfa14a;
+  color: #18181a;
+  transition: background 0.2s;
+}
+.incident-actions button:last-child {
+  margin-right: 0;
+}
+.incident-actions button.pause {
+  background: #e53935;
+  color: #fff;
+}
+.incident-actions button.retry {
+  background: #2ecc71;
+  color: #fff;
+}
+.incident-diagnosis {
+  margin-top: 12px;
+  font-style: italic;
+  color: #bfa14a;
+}
+#audit-log {
+  margin-top: 40px;
+  background: #18181a;
+  border-radius: 8px;
+  padding: 20px;
+}
+#audit-log h2 {
+  color: #bfa14a;
+}
+#audit-entries {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#audit-entries li {
+  margin-bottom: 8px;
+  color: #bfa14a;
+  font-size: 1em;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Dashboard - Financial Settlements</title>
+  <link rel="stylesheet" href="CEO_Metrics.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>CEO Dashboard</h1>
+    </header>
+    <section class="metrics">
+      <div class="metric-block">
+        <h2>Ecosystem Take-Rate</h2>
+        <div class="metric-value" id="take-rate">0.75%</div>
+      </div>
+      <div class="metric-block">
+        <h2>Global Settlement Clock</h2>
+        <div class="metric-value" id="settlement-speed">42 min</div>
+        <div class="metric-goal">Goal: &lt;1 hour</div>
+      </div>
+    </section>
+    <section class="charts">
+      <h2>Monthly Recurring Revenue (MRR)</h2>
+      <canvas id="mrrChart" width="600" height="260"></canvas>
+      <div class="fee-breakdown">
+        <h3>Fee Breakdown</h3>
+        <ul>
+          <li><span class="fee-label">Transaction Fee:</span> 0.75% per payout</li>
+          <li><span class="fee-label">FX Fee:</span> 0.3% per currency conversion</li>
+          <li><span class="fee-label">API Call Fee:</span> $0.01 per API call</li>
+        </ul>
+      </div>
+    </section>
+    <section class="partner-health">
+      <h2>Partner Health (Credit Score)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Store</th>
+            <th>Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Luxury Travel Store A</td>
+            <td>92</td>
+            <td class="good">Reliable</td>
+          </tr>
+          <tr>
+            <td>Global Tours B</td>
+            <td>78</td>
+            <td class="average">Average</td>
+          </tr>
+          <tr>
+            <td>Exotic Escapes C</td>
+            <td>61</td>
+            <td class="poor">Needs Attention</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="compliance">
+      <h2>Regulatory Compliance</h2>
+      <button id="generate-proof">Generate Proof of Commission (PDF)</button>
+      <div id="proof-status"></div>
+    </section>
+  </div>
+  <script src="CEO_Metrics.js"></script>
+</body>
+</html>

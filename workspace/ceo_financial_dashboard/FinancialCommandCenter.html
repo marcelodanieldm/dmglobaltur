@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Command Center</title>
+  <link rel="stylesheet" href="FinancialCommandCenter.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>Financial Command Center</h1>
+    </header>
+    <section class="charts">
+      <div class="chart-block">
+        <h2>MRR Growth Over Time</h2>
+        <canvas id="mrrChart" width="600" height="260"></canvas>
+      </div>
+      <div class="chart-block">
+        <h2>Consumption Cost vs. Revenue</h2>
+        <canvas id="costRevenueChart" width="600" height="260"></canvas>
+      </div>
+    </section>
+    <section class="metrics">
+      <div class="metric-row">
+        <span class="metric-label">Net Burn Rate:</span>
+        <span id="net-burn-rate">$-2,500</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">CAC (Cost of Acquisition):</span>
+        <span id="cac">$120</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">LTV (Lifetime Value):</span>
+        <span id="ltv">$2,800</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Recovered Revenue (Cart Recovery):</span>
+        <span id="recovered-revenue">$0</span>
+      </div>
+    </section>
+    <section class="actions">
+      <button id="manual-override">Manual Override: Grant Premium Access</button>
+      <div id="override-status"></div>
+    </section>
+  </div>
+  <script src="FinancialCommandCenter.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.dashboard-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 28px 24px 28px;
+}
+header h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 18px;
+}
+.charts {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+.chart-block {
+  flex: 1;
+  background: #fffbe6;
+  border: 1.5px solid #e6c200;
+  border-radius: 12px;
+  padding: 18px 28px;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+}
+.chart-block h2 {
+  font-size: 1.1rem;
+  color: #bfa14a;
+  margin-bottom: 8px;
+}
+.metrics {
+  margin-bottom: 28px;
+}
+.metric-row {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.metric-label {
+  color: #bfa14a;
+  font-weight: 600;
+  margin-right: 12px;
+}
+.actions {
+  margin-top: 18px;
+}
+#manual-override {
+  background: linear-gradient(90deg, #e6c200 0%, #bfa14a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.10);
+  transition: background 0.2s;
+}
+#manual-override:hover {
+  background: linear-gradient(90deg, #bfa14a 0%, #e6c200 100%);
+}
+#override-status {
+  margin-top: 10px;
+  color: #4caf50;
+  font-weight: 600;
+}

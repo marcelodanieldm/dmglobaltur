@@ -1,0 +1,55 @@
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.ledger-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 28px 24px 28px;
+}
+header h1 {
+  font-size: 1.7rem;
+  color: #222;
+  margin-bottom: 18px;
+}
+.ledger-table-section {
+  margin-top: 18px;
+}
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(191,161,74,0.08);
+}
+.ledger-table th, .ledger-table td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 1.08rem;
+}
+.ledger-table th {
+  background: #fffbe6;
+  color: #bfa14a;
+  font-weight: 700;
+  border-bottom: 2px solid #e6c200;
+}
+.ledger-table tr {
+  border-bottom: 1px solid #f0e6c2;
+}
+.ledger-table tr:last-child {
+  border-bottom: none;
+}
+.completed {
+  color: #bfa14a;
+  font-weight: bold;
+}
+.active {
+  color: #e6c200;
+  font-weight: bold;
+}
